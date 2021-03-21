@@ -77,7 +77,7 @@ def execute_move(state, player, row, column):
     return new_state
 
 state = [[' ', ' ', ' ', ' '], [' ', 'W', 'W', ' '], ['B', 'B', 'B', ' '], [' ', ' ', ' ', ' ']]
-newstate = execute_move(state, "B", 0, 1)
+newstate = execute_move(state, "B", 0, 2)
 for i in state:
     print(i)
 print("")
@@ -107,10 +107,16 @@ Check whether a state is a terminal state.
 
 
 def is_terminal_state(state, state_list=None):
-    terminal = False
-    # Your implementation goes here
+    terminal = True
+    for i in range(len(state)):
+        for j in range(len(state)):
+            if get_move_value(state, "W", i, j) != 0:
+                terminal = False
+            if get_move_value(state, "B", i, j) != 0:
+                terminal = False
     return terminal
 
+print(is_terminal_state(newstate))
 
 """
 The minimax algorithm. Your implementation should return the best value for the
