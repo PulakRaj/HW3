@@ -35,6 +35,7 @@ def get_move_value(state, player, row, column):
                     else:
                         break
     return flipped
+    
 
 # state = [[' ', ' ', ' ', ' '], [' ', 'W', 'W', ' '], ['B', 'B', 'B', ' '], [' ', ' ', ' ', ' ']]
 # for i in state:
