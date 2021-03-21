@@ -37,11 +37,6 @@ def get_move_value(state, player, row, column):
     return flipped
 
 
-# state = [[' ', ' ', ' ', ' '], [' ', 'W', 'W', ' '], ['B', 'B', 'B', ' '], [' ', ' ', ' ', ' ']]
-# for i in state:
-#     print(i)
-# print(get_move_value(state, "B", 0, 1))
-
 """
 Execute a move that updates the state. A new state should be crated. The move
 must be valid. Note that the new state should be a clone of the old state and
@@ -76,14 +71,6 @@ def execute_move(state, player, row, column):
     new_state[row][column] = player
     return new_state
 
-state = [[' ', ' ', ' ', ' '], [' ', 'W', 'W', ' '], ['B', 'B', 'B', ' '], [' ', ' ', ' ', ' ']]
-newstate = execute_move(state, "B", 0, 2)
-for i in state:
-    print(i)
-print("")
-for i in newstate:
-    print(i)
-
 
 """
 A method for counting the pieces owned by the two players for a given state. The
@@ -97,7 +84,12 @@ return value should be two tuple in the format of (blackpeices, white pieces), e
 def count_pieces(state):
     blackpieces = 0
     whitepieces = 0
-    # Your implementation goes here
+    for i in range(len(state)):
+        for j in range(len(state)):
+            if state[i][j] == "B":
+                blackpieces += 1
+            if state[i][j] == "W":
+                whitepieces += 1
     return (blackpieces, whitepieces)
 
 
@@ -116,7 +108,6 @@ def is_terminal_state(state, state_list=None):
                 terminal = False
     return terminal
 
-print(is_terminal_state(newstate))
 
 """
 The minimax algorithm. Your implementation should return the best value for the
