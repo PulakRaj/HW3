@@ -35,7 +35,7 @@ def get_move_value(state, player, row, column):
                     else:
                         break
     return flipped
-    
+
 
 # state = [[' ', ' ', ' ', ' '], [' ', 'W', 'W', ' '], ['B', 'B', 'B', ' '], [' ', ' ', ' ', ' ']]
 # for i in state:
@@ -51,16 +51,38 @@ in particular, should not share memory with the old state.
 
 def execute_move(state, player, row, column):
     new_state = [x[:] for x in state]
+    flipped = 0
+    if player == "W":
+        other = "B"
+    else:
+        other = "W"
+    increments = [0, 1,-1]
+    for x in increments:
+        for y in increments:
+            if x == 0 and y == 0:
+                pass
+            else:
+                flips = []
+                for i in range(1, len(state)):
+                    if (row + i*x == len(state)) or (column + i*y == len(state)):
+                        break
+                    elif state[row + i*x][column + i*y] == other:
+                        flips.append((row + i*x, column + i*y))
+                    elif state[row + i*x][column + i*y] == player:
+                        for position in flips:
+                            new_state[position[0]][position[1]] = player
+                    else:
+                        break
     new_state[row][column] = player
     return new_state
 
 state = [[' ', ' ', ' ', ' '], [' ', 'W', 'W', ' '], ['B', 'B', 'B', ' '], [' ', ' ', ' ', ' ']]
-newstate = execute_move(state, "B", 0, 2)
+newstate = execute_move(state, "B", 0, 1)
 for i in state:
     print(i)
 print("")
 for i in newstate:
-    print (i)
+    print(i)
 
 
 """
