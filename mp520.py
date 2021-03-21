@@ -1,3 +1,4 @@
+import copy
 """
 Compute the value brought by a given move by placing a new token for player
 at (row, column). The value is the number of opponent pieces getting flipped
@@ -35,10 +36,10 @@ def get_move_value(state, player, row, column):
                         break
     return flipped
 
-state = [[' ', ' ', ' ', ' '], [' ', 'W', 'W', ' '], ['B', 'B', 'B', ' '], [' ', ' ', ' ', ' ']]
-for i in state:
-    print(i)
-print(get_move_value(state, "B", 0, 1))
+# state = [[' ', ' ', ' ', ' '], [' ', 'W', 'W', ' '], ['B', 'B', 'B', ' '], [' ', ' ', ' ', ' ']]
+# for i in state:
+#     print(i)
+# print(get_move_value(state, "B", 0, 1))
 
 """
 Execute a move that updates the state. A new state should be crated. The move
@@ -48,9 +49,17 @@ in particular, should not share memory with the old state.
 
 
 def execute_move(state, player, row, column):
-    new_state = None
-    # Your implementation goes here
+    new_state = [x[:] for x in state]
+    new_state[row][column] = player
     return new_state
+
+state = [[' ', ' ', ' ', ' '], [' ', 'W', 'W', ' '], ['B', 'B', 'B', ' '], [' ', ' ', ' ', ' ']]
+newstate = execute_move(state, "B", 0, 2)
+for i in state:
+    print(i)
+print("")
+for i in newstate:
+    print (i)
 
 
 """
