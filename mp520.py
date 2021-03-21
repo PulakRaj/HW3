@@ -102,10 +102,11 @@ def is_terminal_state(state, state_list=None):
     terminal = True
     for i in range(len(state)):
         for j in range(len(state)):
-            if get_move_value(state, "W", i, j) != 0:
-                terminal = False
-            if get_move_value(state, "B", i, j) != 0:
-                terminal = False
+            if state[i][j] == " ":
+                if get_move_value(state, "W", i, j) != 0:
+                    terminal = False
+                if get_move_value(state, "B", i, j) != 0:
+                    terminal = False
     return terminal
 
 
@@ -119,9 +120,39 @@ def minimax(state, player):
     value = 0
     row = -1
     column = -1
-    # Your implementation goes here
-    return (value, row, column)
+    if (is_terminal_state(state)):
+        scores = count_pieces(state)
+        return scores[0] - scores[1]
+    elif player == "B":
+        maxValue = -10000000
+        for i in range(len(state)):
+            for j in range(len(state)):
+                if state[i][j] == " ":
+                    value = minimax(execute_move(state, "B", i, j), "W")
+                    if value > maxValue:
+                        maxValue = value
+        for k in state:
+            print(k)
+        print("")
+        return maxValue
+    elif player == "W":
+        minValue = 10000000
+        for i in range(len(state)):
+            for j in range(len(state)):
+                if state[i][j] == " ":
+                    value = minimax(execute_move(state, "W", i, j), "B")
+                    if value < minValue:
+                        minValue = value
+        for k in state:
+            print(k)
+        print("")
+        return minValue
 
+board = [[" ", " ", " ", " "], [" ", "W", "W", " "], ["B", "B", "B", " "], [" ", " ", " ", " "]]
+for i in board:
+    print(i)
+print("")
+print(minimax(board, "B"))
 
 """
 This method should call the minimax algorithm to compute an optimal move sequence
