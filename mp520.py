@@ -157,8 +157,6 @@ def minimax(state, player):
     if player == "W":
         return white()
 
-board = [[" ", " ", " ", " "], ["B", "B", "B", "B"], ["W", "W", "W", "W"], [" ", " ", " ", " "]]
-
 """
 This method should call the minimax algorithm to compute an optimal move sequence
 that leads to an end game. 
