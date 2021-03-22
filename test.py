@@ -1,5 +1,3 @@
-def test():
-    return (0, 1)
+import math
 
-x = test()
-print(x)
+print(math.factorial(16)*16)
