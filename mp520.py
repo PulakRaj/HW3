@@ -1,4 +1,3 @@
-import copy
 """
 Compute the value brought by a given move by placing a new token for player
 at (row, column). The value is the number of opponent pieces getting flipped
