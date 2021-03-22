@@ -270,42 +270,38 @@ def full_minimax_ab(state, player):
     return (value, move_sequence)
 
 
-"""
-4x4 Board
-"""
-print("4x4 Board")
-print("---------")
-board_4x4 = [[" ", " ", " ", " "], [" ", "B", "W", " "], [" ", "W", "B", " "], [" ", " ", " ", " "]]
-for i in board_4x4:
-    print(i)
-# Compute best game play with minimax
-start_time = time.time()
-print("Running full minimax: ")
-print(full_minimax(board_4x4, "B"))
-elapsed_time = time.time() - start_time
-print("Elapsed time: " + str(elapsed_time))
-print()
-# Compute best game play with alpha-beta pruning
-start_time = time.time()
-print("Running full minimax w/ alpha-beta pruning: ")
-print(full_minimax_ab(board_4x4, "B"))
-elapsed_time = time.time() - start_time
-print("Elapsed time: " + str(elapsed_time))
-print()
+# """
+# 4x4 Board
+# """
+# print("4x4 Board")
+# print("---------")
+# board_4x4 = [[" ", " ", " ", " "], [" ", "B", "W", " "], [" ", "W", "B", " "], [" ", " ", " ", " "]]
+# # Compute best game play with minimax
+# start_time = time.time()
+# print("Running full minimax: ")
+# print(full_minimax(board_4x4, "B"))
+# elapsed_time = time.time() - start_time
+# print("Elapsed time: " + str(elapsed_time))
+# print()
+# # Compute best game play with alpha-beta pruning
+# start_time = time.time()
+# print("Running full minimax w/ alpha-beta pruning: ")
+# print(full_minimax_ab(board_4x4, "B"))
+# elapsed_time = time.time() - start_time
+# print("Elapsed time: " + str(elapsed_time))
+# print()
 
 
-"""
-5x5 Board
-"""
-print("5x5 Board")
-print("---------")
-board_5x5 = [["W", "B", " ", " ", " "], ["B", "W", " ", " ", " "], [" ", " ", " ", " ", " "], [" ", " ", " ", "B", "W"], [" ", " ", " ", "W", "B"]]
-for i in board_5x5:
-    print(i)
-# Compute best game play with alpha-beta pruning
-start_time = time.time()
-print("Running full minimax w/ alpha-beta pruning: ")
-print(full_minimax_ab(board_5x5, "B"))
-elapsed_time = time.time() - start_time
-print("Elapsed time: " + str(elapsed_time))
-print()
+# """
+# 5x5 Board
+# """
+# print("5x5 Board")
+# print("---------")
+# board_5x5 = [["W", "B", " ", " ", " "], ["B", "W", " ", " ", " "], [" ", " ", " ", " ", " "], [" ", " ", " ", "B", "W"], [" ", " ", " ", "W", "B"]]
+# # Compute best game play with alpha-beta pruning
+# start_time = time.time()
+# print("Running full minimax w/ alpha-beta pruning: ")
+# print(full_minimax_ab(board_5x5, "B"))
+# elapsed_time = time.time() - start_time
+# print("Elapsed time: " + str(elapsed_time))
+# print()
